@@ -121,7 +121,7 @@ class Stub
      * 
      * @return string
      */
-    public function createDefaultStub(\Phar $phar) 
+    public function createDefaultStub(\Phar $phar)
     {
         $this->createStubCli();
         $this->createStubWeb();
@@ -132,7 +132,7 @@ class Stub
      * 
      * @return self
      */
-    protected function createStubCli() 
+    protected function createStubCli()
     {
         if ($this->enableCli) {
             if (null === $this->stubCli) {
