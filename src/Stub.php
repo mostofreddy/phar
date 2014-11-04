@@ -5,7 +5,7 @@
  * PHP version 5.3+
  *
  * Copyright (c) 2014 Federico Lozada Mosto <mosto.federico@gmail.com>
- * For the full copyright and license information, please view the LICENSE file that was distributed 
+ * For the full copyright and license information, please view the LICENSE file that was distributed
  * with this source code.
  *
  * @category  Phar
@@ -21,9 +21,9 @@ namespace Mostofreddy\Phar;
  * Stub
  *
  * Create default stub
- * 
+ *
  * Copyright (c) 2014 Federico Lozada Mosto <mosto.federico@gmail.com>
- * For the full copyright and license information, please view the LICENSE file that was distributed 
+ * For the full copyright and license information, please view the LICENSE file that was distributed
  * with this source code.
  *
  * @category  Phar
@@ -47,9 +47,9 @@ class Stub
 
     /**
      * Enable create cli stub
-     * 
+     *
      * @param bool $bool true|false
-     * 
+     *
      * @return self
      */
     public function enableCli($bool)
@@ -59,9 +59,9 @@ class Stub
     }
     /**
      * Enable create web stub
-     * 
+     *
      * @param bool $bool true|false
-     * 
+     *
      * @return self
      */
     public function enableWeb($bool)
@@ -71,37 +71,31 @@ class Stub
     }
     /**
      * Set file for cli stub
-     * 
-     * @param string $stub relative path to file 
-     * 
+     *
+     * @param string $stub relative path to file
+     *
      * @return self
      */
     public function setStubCli($stub)
     {
-        if (!is_file($stub) || !is_readable($stub)) {
-            throw new \Exception('Invalid file');
-        }
         $this->stubCli = $stub;
         return $this;
     }
     /**
      * Set file for web stub
-     * 
-     * @param string $stub relative path to file 
-     * 
+     *
+     * @param string $stub relative path to file
+     *
      * @return self
      */
     public function setStubWeb($stub)
     {
-        if (!is_file($stub) || !is_readable($stub)) {
-            throw new \Exception('Invalid file');
-        }
         $this->stubWeb = $stub;
         return $this;
     }
     /**
      * Directory for create default stub if no defined setStubCli or setStubWeb.
-     * 
+     *
      * @param string $dir path to dir
      *
      * @return self
@@ -116,9 +110,9 @@ class Stub
     }
     /**
      * Create default stubs
-     * 
+     *
      * @param \Phar $phar Phar instance
-     * 
+     *
      * @return string
      */
     public function createDefaultStub(\Phar $phar)
@@ -129,7 +123,7 @@ class Stub
     }
     /**
      * Set & create Cli Stub
-     * 
+     *
      * @return self
      */
     protected function createStubCli()
@@ -146,7 +140,7 @@ class Stub
     }
     /**
      * Set & create Web Stub
-     * 
+     *
      * @return self
      */
     protected function createStubWeb()
@@ -162,23 +156,23 @@ class Stub
     }
     /**
      * Create default stub
-     * 
+     *
      * @param string $name file name
-     * 
+     *
      * @return string
      */
     protected function createEmptyDefault($name)
     {
         $content = <<<TXT
-<?php 
+<?php
 echo "";
 TXT;
         file_put_contents($this->dirTmp.'/'.$name, $content);
         return $name;
     }
     /**
-     * Delete stub if automated created 
-     * 
+     * Delete stub if automated created
+     *
      * @return void
      */
     public function deleteTmpStubs()
